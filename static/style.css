@@ -1,0 +1,46 @@
+body {
+  font-family: sans-serif;
+  background: linear-gradient(to right, #f8fafc, #e0f2fe);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+.container {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width: 400px;
+}
+h1 {
+  text-align: center;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+}
+li {
+  padding: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+input {
+  width: 75%;
+  padding: 0.5rem;
+}
+button {
+  width: 20%;
+  padding: 0.5rem;
+  margin-left: 5%;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}

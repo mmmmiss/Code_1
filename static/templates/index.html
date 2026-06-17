@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flask 聊天室</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>简易聊天室</h1>
+    <ul id="messages"></ul>
+    <input id="messageInput" placeholder="输入消息...">
+    <button onclick="sendMessage()">发送</button>
+  </div>
+
+  <script>
+    const socket = io();
+    const input = document.getElementById('messageInput');
+    const messages = document.getElementById('messages');
+
+    socket.on('message', function(msg) {
+      const item = document.createElement('li');
+      item.textContent = msg;
+      messages.appendChild(item);
+      window.scrollTo(0, document.body.scrollHeight);
+    });
+
+    function sendMessage() {
+      const msg = input.value;
+      if (msg.trim() !== '') {
+        socket.send(msg);
+        input.value = '';
+      }
+    }
+
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') sendMessage();
+    });
+  </script>
+</body>
+</html>
